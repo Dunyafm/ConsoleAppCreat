@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mCA2lvapKWtQryYT9gjUFKS0HkyWoiQpiMF4LXLDn34AlwNweXBN1jvXMS4P7fRXpP/Rrw3wrde2ShGkNwGjyg==",
+  "dgSpecHash": "HK+hXxL+32TgtI5mUusFowKIFBa1yDESdNMgzzM5hooCiSJuw6U/7q3pOrGb+hqF++yCajIEqDGSWYFikrc+Yg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\CompanyApp\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\ConsoleAppCreat\\CompanyApp\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

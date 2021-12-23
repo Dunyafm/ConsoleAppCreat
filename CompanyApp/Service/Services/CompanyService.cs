@@ -9,9 +9,19 @@ namespace Service.Services
 {
     public class CompanyService : ICompanyService
     {
-        public CompanyRepository _iCompanyRepository;
+        private CompanyRepository _companyRepository;
+        private int count { get; set; }
+        public CompanyService()
+        {
+            _companyRepository = new CompanyRepository();
+        }
         public Company Create(Company model)
         {
+            model.Id = count;
+            _companyRepository.Create(model);
+            count++;
+            return model;
+
             throw new NotImplementedException();
         }
 
@@ -20,9 +30,10 @@ namespace Service.Services
             throw new NotImplementedException();
         }
 
-        public Company Get(Predicate<Company> filter)
+        public Company GetByid(int id)
         {
-            throw new NotImplementedException();
+            return _companyRepository.Get(m => m.Id == id);
+            
         }
 
         public List<Company> GetAll(Predicate<Company> filter)
@@ -36,6 +47,11 @@ namespace Service.Services
         }
 
         public Company Update(int id, Company model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Company GetById(int id)
         {
             throw new NotImplementedException();
         }

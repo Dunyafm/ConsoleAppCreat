@@ -5,14 +5,14 @@ using System.Text;
 
 namespace Service.Services.Interfaces
 {
-    public  interface ICompanyService
+    public  interface ICompanyService 
     {
 
 
         Company Create(Company model);
         Company Update(int id, Company model);
         void Delete(Company model);
-        Company Get(Predicate<Company> filter);
+        Company GetById(int id);
         List<Company> GetAll(Predicate<Company> filter);
         Company GetByName(Predicate<Company> filter);
 

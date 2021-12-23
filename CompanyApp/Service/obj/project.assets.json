@@ -51,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\CompanyApp\\Service\\Service.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\ConsoleAppCreat\\CompanyApp\\Service\\Service.csproj",
       "projectName": "Service",
-      "projectPath": "C:\\Users\\ASUS\\Desktop\\CompanyApp\\Service\\Service.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\ConsoleAppCreat\\CompanyApp\\Service\\Service.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Desktop\\CompanyApp\\Service\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Desktop\\ConsoleAppCreat\\CompanyApp\\Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -72,11 +72,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ASUS\\Desktop\\CompanyApp\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\Desktop\\CompanyApp\\Domain\\Domain.csproj"
+            "C:\\Users\\ASUS\\Desktop\\ConsoleAppCreat\\CompanyApp\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\ConsoleAppCreat\\CompanyApp\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\ASUS\\Desktop\\CompanyApp\\Repository\\Repository.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\Desktop\\CompanyApp\\Repository\\Repository.csproj"
+            "C:\\Users\\ASUS\\Desktop\\ConsoleAppCreat\\CompanyApp\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\ConsoleAppCreat\\CompanyApp\\Repository\\Repository.csproj"
             }
           }
         }

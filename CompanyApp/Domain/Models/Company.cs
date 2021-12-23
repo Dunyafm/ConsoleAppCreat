@@ -10,6 +10,9 @@ namespace Domain.Models
         public string Name { get; set; }
         public  string Address { get; set; }
 
-
+        public static implicit operator Company(Company v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
