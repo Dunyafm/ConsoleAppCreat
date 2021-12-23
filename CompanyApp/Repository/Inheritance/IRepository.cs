@@ -13,7 +13,7 @@ namespace Repository.Inheritance
 
         T Get(Predicate<T> filter);
         List<T> GetAll(Predicate<T> filter);
-;
+
 
     }
 }

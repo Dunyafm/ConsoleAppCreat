@@ -33,56 +33,56 @@ namespace CompanyApplication
                 {
 
 
-                    //  var result = libraryService.Create()
+                    
                     switch (option)
                     {
                         case (int)MyEnums.Menus.CreateCompany:
                             companyController.Create();
                                 break;
-                        //    Helper.WriteToConsole(ConsoleColor.Cyan, "Add Company name");
-                        //    string companyName = Console.ReadLine();
-                        //    Helper.WriteToConsole(ConsoleColor.Cyan, "Add Company name");
-                        //EnterCount: string placeCount = Console.ReadLine();
-                        //    int count;
-                        //    bool isTrueCount = int.TryParse(placeCount, out count);
-                        //    if (isTrueCount)
-                        //    {
-                        //        Company company = new Company
-                        //        {
-                        //            Name = companyName,
-                        //            Address = count
-                        //        };
-                        //        var result = companyService.Create(company);
+                        
+                        case (int)MyEnums.Menus.UptadeCompany:
 
-                        //        if (result != null)
-                        //        {
-
-                        //            Helper.WriteToConsole(ConsoleColor.Green, $"{company.Id} - {company.Name } company created");
-                                   
-
-                        //        }
-                        //        else
-                        //        {
-                        //            Helper.WriteToConsole(ConsoleColor.Green, "Something is wrong");
-                        //            return;
-                        //        }
-
-
-
-                        //    }
-                        //    else
-                        //    {
-                        //        Helper.WriteToConsole(ConsoleColor.Green, "Try again count");
-                        //        goto EnterCount;
-                        //    }
-
-                        //    break;
-                        case 2:
+                            companyController.Uptade();
                             break;
-                        case 3:;
+                        case (int)MyEnums.Menus.DeleteCompany:
+
+                            companyController.Delete();
                             break;
-                        case (int)MyEnums.Menus.CreateCompanyById:
+                        case (int)MyEnums.Menus.GetCompanyById:
+
                             companyController.GetById();
+                            break;
+                        case (int)MyEnums.Menus.GetallCompanyByName:
+
+                            companyController.GetAllByName();
+                            break;
+                        case (int)MyEnums.Menus.GetAllCompany:
+
+                            companyController.GetAll();
+                            break;
+                        case (int)MyEnums.Menus.CreateEmployee:
+
+                            companyController.Create();
+                            break;
+                        case (int)MyEnums.Menus.UptadeEmployee:
+
+                            companyController.Uptade();
+                            break;
+                        case (int)MyEnums.Menus.GetEmployeeById:
+
+                            companyController.GetById();
+                            break;
+                        case (int)MyEnums.Menus.DeleteEmployee:
+
+                            companyController.Delete();
+                            break;
+                        case (int)MyEnums.Menus.GetEmployeeByAge:
+
+                            companyController.GetByAge();
+                            break;
+                        case (int)MyEnums.Menus.GetallEmployeeByCompanyId:
+                            break;
+
 
                             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id: ");
                             string companyId = Console.ReadLine(); ;

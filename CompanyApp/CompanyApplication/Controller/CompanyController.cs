@@ -20,23 +20,23 @@ namespace CompanyApplication.Controller
         {
 
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id: ");
-            string companyId = Console.ReadLine(); ;
+            EnterId: string companyId = Console.ReadLine();
             int id;
 
             bool isIdTrue = int.TryParse(companyId, out id);
 
             if (isIdTrue)
             {
-                var result = CompanyService.GetById(id);
+                var result = CompanyService.GetById(int);
 
-                if (Company == null)
+                if (company == null)
                 {
                     Helper.WriteToConsole(ConsoleColor.Red, "Company not found");
                     goto EnterId;
                 }
                 else
                 {
-                    Helper.WriteToConsole(ConsoleColor.Red, $"{company.Id} - {company.Name } - {company.Address}");
+                    Helper.WriteToConsole(ConsoleColor.Red, "${Company.Id} - {Company.Name } - {Company.Address}");
 
                 }
 
@@ -53,9 +53,15 @@ namespace CompanyApplication.Controller
                 goto EnterId;
             }
         }
-         public void GetById()
-         {
-            throw new NotImplementedException();
-         }
+        public void GetAll() 
+        {
+            var companies = _companyService.GetAll();
+
+            foreach (var item in companies) 
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "$ {item.Id} - {item.Name } - {item.Address }");
+            }
+
+        } 
     }
 }

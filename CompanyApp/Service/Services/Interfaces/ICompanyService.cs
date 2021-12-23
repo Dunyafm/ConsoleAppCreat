@@ -13,8 +13,11 @@ namespace Service.Services.Interfaces
         Company Update(int id, Company model);
         void Delete(Company model);
         Company GetById(int id);
-        List<Company> GetAll(Predicate<Company> filter);
-        Company GetByName(Predicate<Company> filter);
+        List<Company> GetAllByName(string name);
+        List<Company> GetAll();
+        List<Company> GetByAge();
+        Company GetAllById(int id);
+
 
             
 

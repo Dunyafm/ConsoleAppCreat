@@ -25,12 +25,13 @@ namespace Service.Services
             throw new NotImplementedException();
         }
 
-        public void Delete(Company model)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var company = GetById(id);
+            _companyRepository.Delete(company);
         }
 
-        public Company GetByid(int id)
+        public Company GetById(int id)
         {
             return _companyRepository.Get(m => m.Id == id);
             
@@ -51,7 +52,27 @@ namespace Service.Services
             throw new NotImplementedException();
         }
 
-        public Company GetById(int id)
+        public List <Company> GetAll()
+        {
+            return _companyRepository.GetAll(null);
+        }
+
+        public void Delete(Company model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Company> GetAllByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Company> GetByAge()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Company GetAllById(int id)
         {
             throw new NotImplementedException();
         }
