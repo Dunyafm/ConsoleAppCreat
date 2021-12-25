@@ -8,15 +8,15 @@ using System.Text;
 
 namespace CompanyApplication.Controller
 {
-  
-    public  class CompanyController
+
+    public class CompanyController
     {
         private CompanyService _companyService { get; }
         public CompanyController()
         {
             _companyService = new CompanyService();
         }
-        public  void Create()
+        public void Create()
         {
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company name");
             string companyname = Console.ReadLine();
@@ -37,33 +37,33 @@ namespace CompanyApplication.Controller
             {
                 Helper.WriteToConsole(ConsoleColor.Red, "Something is wrong");
             }
-            
 
-            
+
+
         }
         public void Update()
         {
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id : ");
-           EnterId: string companyId = Console.ReadLine();
+        EnterId: string companyId = Console.ReadLine();
             int id;
             bool isTrue = int.TryParse(companyId, out id);
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add new company name : ");
             string newName = Console.ReadLine();
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add new company address : ");
             string newAddress = Console.ReadLine();
-            
-       
+
+
             if (isTrue)
             {
-                if(isIdTrue || string.IsNullOrEmpty(companyId))
+                if (isIdTrue || string.IsNullOrEmpty(companyId))
                 {
                     Company company = new Company
                     {
-                        Name = newName
+                        Name = newName,
                         Address = newAddress
                     };
 
-                   Company newcompany = _companyService.Update(id, company);
+                    Company newcompany = _companyService.Update(id, company);
 
                     Helper.WriteToConsole(ConsoleColor.Green, $"{newcompany.Id}-{newcompany.Name}-{newcompany.Address}");
 
@@ -81,27 +81,150 @@ namespace CompanyApplication.Controller
                 Helper.WriteToConsole(ConsoleColor.Red, "Try again id");
                 goto EnterId;
             }
-            
+
         }
-        public void GetById()
+
+        public void Delete()
         {
 
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id: ");
+            string companyId = Console.ReadLine(); ;
+            int id;
+
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            if (isIdTrue)
+            {
+                var result = _companyService.GetById(id);
 
 
+
+
+                if (result == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Company not found");
+
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, $"{result.Id} - {result.Name } - {result.Address}");
+
+                }
+
+
+
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Try again id");
+
+            }
+
+
+
+            public void GetById()
+        {
+
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id: ");
+            string companyId = Console.ReadLine(); ;
+            int id;
+
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            if (isIdTrue)
+            {
+                var result = _companyService.GetById(id);
+
+                if (result == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Company not found");
+
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, $"{result.Id} - {result.Name } - {result.Address}");
+
+                }
+
+
+
+
+
+
+
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Try again id");
+
+            }
 
 
 
 
         }
-        public void GetAll() 
+           public void GetAll()
         {
             var companies = _companyService.GetAll();
 
-            foreach (var item in companies) 
+            foreach (var item in companies)
             {
                 Helper.WriteToConsole(ConsoleColor.Red, "$ {item.Id} - {item.Name } - {item.Address }");
             }
 
-        } 
+        }
+
+
+
+
+
+
+
+            
+        }   
+
+        public void GetById()  
+        { 
+
+        }
+
+        public void GetAllByName()
+        {
+
+        }
+         public void GetAll()
+         {
+
+         }
+            
+            
+         
+
+
+
+
+
+              
     }
+
+
+
 }
+    
+
+   
+                
+            
+
+         
+
+
+    
+
+
+                
+
+               
+                
+            
+         

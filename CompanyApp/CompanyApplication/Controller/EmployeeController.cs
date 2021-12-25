@@ -20,7 +20,7 @@ namespace CompanyApplication.Controller
         public void Create()
         {
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add employee name :");
-            EnterLibrarayId: string id = Console.ReadLine();
+        EnterLibrarayId: string id = Console.ReadLine();
             int employeeid;
 
             bool idTrueemployeeId = int.TryParse(id, out employeeid);
@@ -28,21 +28,23 @@ namespace CompanyApplication.Controller
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add employee surname :");
             string employeesurname = Console.ReadLine();
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add employee age :");
-            int employeeage = Console.ReadLine();
+            string employeeage = Console.ReadLine();
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add employee company :");
             string employeecompany = Console.ReadLine();
             int id;
 
-            Company company = new Company
+            employee = new employee
             {
-                Name = companyname,
-                Address = companyaddress
+                Name = employeename,
+                Surname = employeesurname,
+                Age = employeeage,
+                Company = employeecompany
 
             };
-            var result =_companyService.Create(company);
+            var result = _EmployeeService.Create(company);
             if (result != null)
             {
-                Helper.WriteToConsole(ConsoleColor.Green, $"{company.Id} {company.Name} company created ");
+                Helper.WriteToConsole(ConsoleColor.Green, $"{employeename} {employeesurname} {employeeage} {employeecompany} employee created ");
             }
             else
             {
@@ -56,4 +58,30 @@ namespace CompanyApplication.Controller
         {
             throw new NotImplementedException();
         }
-    }   }       
+        
+        public void Update()
+        {
+
+        }
+        public void GetById()
+        {
+
+        }
+        public void Delete()
+        {
+
+        }
+        
+        public void GetByAge()
+        {
+
+        }
+
+        public void GetAllById()
+        {
+
+        }
+        
+        
+        
+}   }         

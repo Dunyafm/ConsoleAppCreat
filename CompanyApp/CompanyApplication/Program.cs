@@ -50,7 +50,7 @@ namespace CompanyApplication
                             
                             break;
                         case (int)MyEnums.Menus.GetCompanyById:
-
+                            companyController.GetById();
                             
                             break;
                         case (int)MyEnums.Menus.GetAllCompanyByName:
@@ -61,7 +61,27 @@ namespace CompanyApplication
 
                             companyController.GetAll();
                             break;
-                        
+                        case (int)MyEnums.Menus.CreateEmployee:
+
+
+                        break;
+
+                        case (int)MyEnums.Menus.UptadeEmployee:
+
+                            break;
+
+                        case (int)MyEnums.Menus.GetEmployeeById:
+
+                            break;
+
+                        case (int)MyEnums.Menus.DeleteEmployee:
+
+                            break;
+                        case (int)MyEnums.Menus.GetEmployeeByAge:
+                            break;
+
+                        case (int)MyEnums.Menus.GetAllEmployeeByCompanyId:
+                            break;
                         
 
                             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id: ");
