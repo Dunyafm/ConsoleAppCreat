@@ -19,10 +19,13 @@ namespace CompanyApplication.Controller
         public void Create()
         {
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company name");
-            string companyname = Console.ReadLine();
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company name");
+            EnterName:string companyname = Console.ReadLine();
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company address");
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company adrress");
             string companyaddress = Console.ReadLine();
-            Company company = new Company
+
+            Company company = new Company ()
             {
                 Name = companyname,
                 Address = companyaddress
@@ -36,11 +39,98 @@ namespace CompanyApplication.Controller
             else
             {
                 Helper.WriteToConsole(ConsoleColor.Red, "Something is wrong");
+                goto EnterName;
             }
 
 
 
         }
+        public void GetById()
+        {
+            Helper.WriteToConsole(ConsoleColor.Blue, "Add company's ID:");
+        EnterId: string companyID = Console.ReadLine();
+            int id;
+
+            bool isTrue = int.TryParse(companyID, out id);
+
+            if (isIdTrue)
+            {
+                var companies = _companyService.GetById(id);
+                if (companies == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Company not found.");
+                }
+                else
+                {
+
+
+                    Helper.WriteToConsole(ConsoleColor.Green, $"Name : {companies.Name} - Address:{companies.Address}")
+
+                        goto EnterId;
+                }
+            }
+
+
+            
+
+        }
+
+        public void Delete()
+        {
+
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id: ");
+            string companyId = Console.ReadLine(); ;
+            int id;
+
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            if (isIdTrue)
+            {
+                var result = _companyService.GetById(id);
+
+
+
+
+                if (result == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Company not found");
+
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, $"{result.Id} - {result.Name } - {result.Address}");
+
+                }
+
+
+
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Try again id");
+
+            }
+
+            
+        }   
+
+        public void GetById()  
+        { 
+
+        }
+
+        public void GetAllByName()
+        {
+
+        }
+         public void GetAll()
+         {
+
+         }
+
+
+
+
         public void Update()
         {
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id : ");
@@ -84,45 +174,11 @@ namespace CompanyApplication.Controller
 
         }
 
-        public void Delete()
-        {
-
-            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id: ");
-            string companyId = Console.ReadLine(); ;
-            int id;
-
-            bool isIdTrue = int.TryParse(companyId, out id);
-
-            if (isIdTrue)
-            {
-                var result = _companyService.GetById(id);
 
 
 
 
-                if (result == null)
-                {
-                    Helper.WriteToConsole(ConsoleColor.Red, "Company not found");
-
-                }
-                else
-                {
-                    Helper.WriteToConsole(ConsoleColor.Red, $"{result.Id} - {result.Name } - {result.Address}");
-
-                }
-
-
-
-            }
-            else
-            {
-                Helper.WriteToConsole(ConsoleColor.Red, "Try again id");
-
-            }
-
-
-
-            public void GetById()
+        public void GetById()
         {
 
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id: ");
@@ -163,7 +219,7 @@ namespace CompanyApplication.Controller
 
 
         }
-           public void GetAll()
+        public void GetAll()
         {
             var companies = _companyService.GetAll();
 
@@ -179,32 +235,6 @@ namespace CompanyApplication.Controller
 
 
 
-
-            
-        }   
-
-        public void GetById()  
-        { 
-
-        }
-
-        public void GetAllByName()
-        {
-
-        }
-         public void GetAll()
-         {
-
-         }
-            
-            
-         
-
-
-
-
-
-              
     }
 
 

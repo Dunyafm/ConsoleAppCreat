@@ -22,13 +22,49 @@ namespace Repository.Implementations
             }
             catch (Exception ex)
             {
-                return false;
 
                 Console.WriteLine(ex.Message);
+                return false;
+
             }
+            
+        }
+
+        public bool Update(Company entity)
+        {
+
+            try
+            {
+                var company = Get(m => m.Id == entity.Id);
+                if (company != null)
+                {
+                    if (!string.IsNullOrEmpty(entity.Name))
+                        company.Name = entity.Name;
+                    if (!string.IsNullOrEmpty(entity.Address))
+                        company.Address = entity.Address;
+                    return true;
+                    
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+           
+
+           
+
+          
 
 
-            throw new NotImplementedException();
+
+
         }
 
         public bool Deelete(Company entity)
@@ -48,20 +84,17 @@ namespace Repository.Implementations
                 Console.WriteLine(ex.Message);
                 return false;
             }
-           
-        }
 
-        public Company Get(Predicate<Company> filter = null)
+
+        }
+    
+        public List<Company> GetAll(Predicate <Company> filter)
         {
-            return filter == null ? AppDbContext<Company>.datas[0] :AppDbContext<Company>.datas.Find(filter);
+            return filter == null ? AppDbContext<Company>.datas : AppDbContext<Company>.datas.FindAll(filter);
+
         }
 
-        public List<Company> GetAll(Predicate<Company> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Company entity)
+        public Company Get(Predicate<Company> filter)
         {
             throw new NotImplementedException();
         }

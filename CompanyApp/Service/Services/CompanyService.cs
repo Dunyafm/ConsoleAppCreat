@@ -22,7 +22,8 @@ namespace Service.Services
             count++;
             return model;
 
-            throw new NotImplementedException();
+            `
+
         }
 
         public void Delete(int id)
@@ -49,7 +50,10 @@ namespace Service.Services
 
         public Company Update(int id, Company model)
         {
-            throw new NotImplementedException();
+            var company = GetById(id);
+            model.Id = company.Id;
+            ((Repository.Inheritance.IRepository<Company>)_companyRepository).Update(company);
+                return model;
         }
 
         public List <Company> GetAll()

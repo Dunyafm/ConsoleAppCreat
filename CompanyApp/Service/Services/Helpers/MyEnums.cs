@@ -9,9 +9,9 @@ namespace Service.Services.Helpers
         public enum Menus
         {
             CreateCompany = 1,
-            UptatedCompany,
+            UpdateCompany,
             DeleteCompany,
-            GetCompanyByid,
+            GetCompanyById,
             GetAllCompanyByName,
             GetAllCompany ,
             CreateEmployee,

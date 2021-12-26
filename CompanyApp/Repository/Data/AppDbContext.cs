@@ -29,23 +29,12 @@ namespace Repository.Data
     {
 
         public static List<T> datas { get; }
-        public AppDbContext()
+        static AppDbContext()
         {
 
             datas = new List<T>();
 
-
         }
-
-
-
-
-
-
-
-
-
-
 
 
 

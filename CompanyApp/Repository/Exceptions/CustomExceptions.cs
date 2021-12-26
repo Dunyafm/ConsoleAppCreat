@@ -6,7 +6,7 @@ namespace Repository.Exceptions
 {
     public class CustomExceptions : Exception
     {   
-         public CustomExceptions(string msj) : base(msj);
+         public CustomExceptions(string msj) : base(msj)
          {
 
 

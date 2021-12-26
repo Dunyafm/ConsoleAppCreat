@@ -8,9 +8,9 @@ namespace Domain.Models
     public class Employee : BaseEntity
     {
         public string Name { get; set; }
-        public string Surname { get; set; }
+        public string Surname { get; set; }s
         public int Age { get; set; }
-        public string Company { get; set; }
+        public Company Company { get; set; }
 
 
     }

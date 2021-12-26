@@ -15,8 +15,8 @@ namespace Service.Services.Interfaces
         Company GetById(int id);
         List<Company> GetAllByName(string name);
         List<Company> GetAll();
-        List<Company> GetByAge();
         Company GetAllById(int id);
+
 
 
             
