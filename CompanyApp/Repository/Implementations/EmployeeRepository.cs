@@ -50,7 +50,7 @@ namespace Repository.Implementations
 
         public bool GetById(Employee entity)
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         public bool Update(Employee entity)
