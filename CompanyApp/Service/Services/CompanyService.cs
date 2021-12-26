@@ -15,14 +15,14 @@ namespace Service.Services
         {
             _companyRepository = new CompanyRepository();
         }
-        public Company Create(Company model)
+       public Company Create(Company model)
         {
             model.Id = count;
             _companyRepository.Create(model);
             count++;
             return model;
 
-            `
+            
 
         }
 

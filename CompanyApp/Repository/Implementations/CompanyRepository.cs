@@ -98,5 +98,10 @@ namespace Repository.Implementations
         {
             throw new NotImplementedException();
         }
+
+        public bool GetById(Company entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

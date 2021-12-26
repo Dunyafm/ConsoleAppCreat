@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Service.Services.Helpers
+namespace Service.Helpers
 {
     public class MyEnums
     {
@@ -13,25 +13,16 @@ namespace Service.Services.Helpers
             DeleteCompany,
             GetCompanyById,
             GetAllCompanyByName,
-            GetAllCompany ,
+            GetAllCompany,
             CreateEmployee,
-            UptadeEmployee,
+            GetAllEmployeeByCompanyId,
+            UpdateEmployee,
             GetEmployeeById,
             DeleteEmployee,
-            GetEmployeeByAge,
-            GetAllEmployeeByCompanyId,
-
-
-
-
-
-
-
-
+            GetEmployeeByAge
 
         }
+      
 
-
-
-
-}   }
+    }
+}

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Service.Services.Helpers
 {
-    public static  class Helper
+    public static class Helper
     {
         public static void WriteToConsole(ConsoleColor color, string text)
         {
@@ -19,3 +19,4 @@ namespace Service.Services.Helpers
 
     }
 }
+

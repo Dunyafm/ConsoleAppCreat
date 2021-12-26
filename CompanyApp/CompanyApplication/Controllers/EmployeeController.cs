@@ -78,7 +78,7 @@ namespace CompanyApplication.Controllers
 
             if (isIdTrue)
             {
-                var employee1 = _employeeService.GetById(id);
+                Employee employee1 =_employeeService.GetById(id);
 
                 if (employee1 == null)
                 {

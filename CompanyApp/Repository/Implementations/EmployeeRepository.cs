@@ -14,59 +14,79 @@ namespace Repository.Implementations
             {
                 if (entity == null)
                     throw new CustomExceptions("Entity is null");
-
                 AppDbContext<Employee>.datas.Add(entity);
                 return true;
             }
             catch (Exception ex)
             {
-                return false;
-
                 Console.WriteLine(ex.Message);
+                return false;
             }
-
-
-            throw new NotImplementedException();
-
-           
         }
 
-        public bool Update(Employee entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Employee GetById(Predicate<Employee> filter)
-        {
-            throw new NotImplementedException();
-        }
         public bool Delete(Employee entity)
         {
-            throw new NotImplementedException();
-        }
-        public bool GetByAge (Employee entity)
-        {
-            throw new NotImplementedException();
-        }
-       
-        public bool GetAllByCompany(Employee entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Deelete(Employee entity)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                AppDbContext<Employee>.datas.Remove(entity);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
 
         public Employee Get(Predicate<Employee> filter)
         {
-            throw new NotImplementedException();
+            return filter == null ? AppDbContext<Employee>.datas[0] : AppDbContext<Employee>.datas.Find(filter);
         }
 
         public List<Employee> GetAll(Predicate<Employee> filter)
         {
-            throw new NotImplementedException();
+            return filter == null ? AppDbContext<Employee>.datas : AppDbContext<Employee>.datas.FindAll(filter);
+        }
+
+        public bool GetById(Employee entity)
+        {
+            return true;
+        }
+
+        public bool Update(Employee entity)
+        {
+            try
+            {
+                var employee = Get(m => m.Id == entity.Id);
+                if (employee != null)
+                {
+                    if (!string.IsNullOrEmpty(entity.Name))
+                        employee.Name = entity.Name;
+
+                    if (!string.IsNullOrEmpty(entity.Surname))
+                        employee.Surname = entity.Surname;
+
+                    if (!string.IsNullOrEmpty(entity.Age.ToString()))
+                        employee.Age = entity.Age;
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
     }
+
+
+
+
+
 }
+

@@ -43,25 +43,25 @@ namespace Service.Services
             _employeeRepository.Delete(model);
         }
 
-        public void GetById(int id)
+        public Employee GetById(int id)
         {
-            return _employeeRepository.Get(m =>.Id == id);
+            return _employeeRepository.Get(m => m.Id == id);
 
 
         }
          
         public Employee GetEmployeeByAge(int age)
         {
-            return _employeeRepository.Geet(m => m.Age == age);
+            return _employeeRepository.Get(m => m.Age == age);
         }
         public List<Employee> GetAllEmployeeByCompany(int id)
         {
-            return _companyRepository.GetAll(m => m.Company.Id == id);
+            return _employeeRepository.GetAll(m => m.Id == id);
         }
 
         public Employee Update(int id,Employee model)
         {
-            var employee = GetById(id);
+            Employee employee = GetById(id);
             model.Id = employee.Id;
             _employeeRepository.Update(model);
             return model;
