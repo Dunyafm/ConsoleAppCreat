@@ -1,0 +1,176 @@
+﻿using Domain.Models;
+using Service.Services;
+using Service.Services.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CompanyApplication.Controllers
+{
+    public class CompanyController
+    {
+
+        private CompanyService _companyService { get; }
+        public CompanyController()
+        {
+            _companyService = new CompanyService();
+        }
+        public void Create()
+        {
+            Helper.WriteToConsole(ConsoleColor.Yellow, "Add name for company:");
+        EnterName: string companyName = Console.ReadLine();
+            Helper.WriteToConsole(ConsoleColor.Yellow, "Add address for company:");
+            string companyAdress = Console.ReadLine();
+
+            Company company = new Company()
+            {
+                Name = companyName,
+                Address = companyAdress
+            };
+            var result = _companyService.Create(company);
+
+            if (result != null)
+            {
+                Helper.WriteToConsole(ConsoleColor.Green, $"Id: {company.Id} - Name: {company.Name} - Address: {company.Address}");
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Something is wrong");
+                goto EnterName;
+            }
+        }
+        public void GetById()
+        {
+            Helper.WriteToConsole(ConsoleColor.Yellow, "Add company's ID:");
+        EnterId: string companyId = Console.ReadLine();
+            int id;
+
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            if (isIdTrue)
+            {
+                var companies = _companyService.GetById(id);
+
+                if (companies == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Company not found.");
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.Green, $"Name: {companies.Name} - Address: {companies.Name}");
+                }
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Try again id:");
+                goto EnterId;
+            }
+        }
+        public void Delete()
+        {
+            Helper.WriteToConsole(ConsoleColor.Yellow, "Add company's ID:");
+        EnterId: string companyId = Console.ReadLine();
+            int id;
+
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            if (isIdTrue)
+            {
+                var companys = _companyService.GetById(id);
+
+                if (companys == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Company not found. Enter company's ID again:");
+                    goto EnterId;
+                }
+                else
+                {
+                    _companyService.Delete(companys);
+                    Helper.WriteToConsole(ConsoleColor.Green, $"Company is deleted");
+                }
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Try again:");
+                goto EnterId;
+            }
+        }
+        public void GetAll()
+        {
+            var companies = _companyService.GetAll();
+
+            foreach (var item in companies)
+            {
+                Helper.WriteToConsole(ConsoleColor.Green, $"Id: {item.Id} - Name: {item.Name} - Address: {item.Address}");
+            }
+        }
+        public void Update()
+        {
+            Helper.WriteToConsole(ConsoleColor.Yellow, "Add company's ID:");
+        EnterId: string companyId = Console.ReadLine();
+            int id;
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            Helper.WriteToConsole(ConsoleColor.Yellow, "Add new name for company:");
+            string newName = Console.ReadLine();
+
+            Helper.WriteToConsole(ConsoleColor.Yellow, "Add new address for company:");
+            string newAddress = Console.ReadLine();
+
+            if (isIdTrue)
+            {
+                Company company = new Company
+                {
+                    Name = newName,
+                    Address = newAddress
+                };
+
+                Company newCompany = _companyService.Update(id, company);
+
+                Helper.WriteToConsole(ConsoleColor.Green, $"ID: {newCompany.Id} - New Name: {newCompany.Name} - New Address: {newCompany.Address}");
+
+
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Company not found. Try again:");
+                goto EnterId;
+            }
+        }
+        public void GetAllByName()
+        {
+            Helper.WriteToConsole(ConsoleColor.Yellow, "Enter the names of the companies:");
+            string name = Console.ReadLine();
+            var companies = _companyService.GetAllByName(name);
+            foreach (var item in companies)
+            {
+                if (companies == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Companies not found.");
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.Green, $"ID: {item.Id} - Name: {item.Name} - Address: {item.Address}");
+                }
+            }
+
+        }
+    }
+}    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
